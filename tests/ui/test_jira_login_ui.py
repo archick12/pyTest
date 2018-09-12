@@ -9,7 +9,7 @@ from src.pages.login_page import LoginPage
 driver = None
 login_page = None
 
-def test_login_to_jira():
+def login_to_jira():
     driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
     login_page = LoginPage(driver)
     driver.get("http://jira.hillel.it:8080/secure/Dashboard.jspa")

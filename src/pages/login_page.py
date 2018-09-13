@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 
+
 class LoginPage:
     LOGIN_INPUT = (By.ID, "login-form-username")
     PASSWORD_INPUT = (By.ID, "login-form-password")
@@ -10,8 +11,15 @@ class LoginPage:
         self.driver = driver
 
     def login_to_jira(self):
-        self.driver.LOGIN_INPUT.clear()
-        self.driver.LOGIN_INPUT.send_keys("webinar5")
-        self.driver.PASSWORD_INPUT("login-form-password").clear()
-        self.driver.PASSWORD_INPUT("login-form-password").send_keys("webinar5")
-        self.driver.LOGIN_BUTTON("login").submit()
+        self.driver.find_element(*self.LOGIN_INPUT).clear()
+        self.driver.find_element(*self.LOGIN_INPUT).send_keys("webinar5")
+        self.driver.find_element(*self.PASSWORD_INPUT).clear()
+        self.driver.find_element(*self.PASSWORD_INPUT).send_keys("webinar5")
+        self.driver.find_element(*self.LOGIN_BUTTON).submit()
+
+    def at_page(self):
+        return "System Dashboard - Hillel IT School JIRA" in self.driver.title
+
+    def open(self):
+        self.driver.get("http://jira.hillel.it:8080/secure/Dashboard.jspa")
+        return self

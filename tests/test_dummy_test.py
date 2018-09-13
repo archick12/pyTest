@@ -1,5 +1,2 @@
-import random
-
-
 def test_example():
-    assert random.choice([True, False])
+    assert 1 == 1

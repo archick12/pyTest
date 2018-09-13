@@ -1,21 +1,18 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
-
+from src.pages.header_page import HeaderPage
 from src.pages.login_page import LoginPage
 
-driver = None
-login_page = None
 
-def login_to_jira():
-    driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
-    login_page = LoginPage(driver)
-    driver.get("http://jira.hillel.it:8080/secure/Dashboard.jspa")
-    assert "System Dashboard - Hillel IT School JIRA" in driver.title
-    login_page.login_to_jira()
+class TestLogin:
 
-    profile_logo_element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "header-details-user-fullname")))
-    assert profile_logo_element.is_displayed() == True
-    driver.close()
+    def setup_method(self):
+        self.driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
+        self.login_page = LoginPage(self.driver)
+        self.header_page = HeaderPage(self.driver)
+
+    def test_login_to_jira(self):
+        assert self.login_page.open().at_page()
+        self.login_page.login_to_jira()
+        assert self.header_page.atPage()
+        self.driver.close()

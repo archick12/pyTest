@@ -12,7 +12,8 @@ class TestLogin:
         self.header_page = HeaderPage(self.driver)
 
     def test_login_to_jira(self):
-        assert self.login_page.open().at_page()
+        self.login_page.open()
+        assert self.login_page.at_page()
         self.login_page.login_to_jira()
-        assert self.header_page.atPage()
+        assert self.header_page.at_page()
         self.driver.close()

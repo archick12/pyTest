@@ -9,7 +9,7 @@ class HeaderPage:
     def __init__(self, driver):
         self.driver = driver
 
-    def atPage(self):
+    def at_page(self):
         profile_logo_element = WebDriverWait(self.driver, 10) \
             .until(EC.presence_of_element_located((By.ID, "header-details-user-fullname")))
         return profile_logo_element.is_displayed()

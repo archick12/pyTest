@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.android.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
@@ -8,7 +9,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 class TestLogin:
 
     def test_login_to_jira(self):
-        driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
+        driver: WebDriver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
         driver.get("http://jira.hillel.it:8080/secure/Dashboard.jspa")
         assert "System Dashboard - Hillel IT School JIRA" in driver.title
 

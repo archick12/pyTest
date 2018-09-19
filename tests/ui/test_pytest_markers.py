@@ -1,3 +1,4 @@
+import pytest
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from src.pages.header_page import HeaderPage
@@ -11,6 +12,9 @@ class TestLogin:
         self.login_page = LoginPage(self.driver)
         self.header_page = HeaderPage(self.driver)
 
+    @pytest.mark.regression
+    @pytest.mark.P1
+    @pytest.mark.skip(reason="NMB-12222 User authorization is blocked by advertisement")
     def test_login_to_jira_page_object(self):
         self.login_page.open()
         assert self.login_page.at_page()

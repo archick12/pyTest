@@ -18,14 +18,13 @@ class LoginPage:
         self.driver.find_element(*self.LOGIN_INPUT).clear()
         self.driver.find_element(*self.LOGIN_INPUT).send_keys("webinar5")
         self.driver.find_element(*self.PASSWORD_INPUT).clear()
-        self.driver.find_element(*self.PASSWORD_INPUT).send_keys("webinar5")
+        self.driver.find_element(*self.PASSWORD_INPUT).send_keys("webinar6")
         self.driver.find_element(*self.LOGIN_BUTTON).submit()
 
     @allure.step
     def click_login_button(self):
         WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(*self.LOGIN_INPUT)).click()
 
-    @allure.step
     def at_page(self):
         return "System Dashboard - Hillel IT School JIRA" in self.driver.title
 

@@ -18,11 +18,14 @@ class TestLogin:
     @allure.title("Create issue UI")
     @pytest.mark.regression
     @pytest.mark.P1
-    def test_login_to_jira_page_object(self):
+    @pytest.mark.ui
+    def test_login_to_jira_markers(self):
         self.login_page.open()
-        assert self.login_page.at_page()
+        with allure.step("at_page"):
+            assert self.login_page.at_page()
         self.login_page.login_to_jira()
-        assert self.header_page.at_page()
+        with allure.step("at_page"):
+            assert self.header_page.at_page()
 
     @allure.title("Test to be skipped")
     @pytest.mark.feature

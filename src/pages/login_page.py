@@ -18,7 +18,7 @@ class LoginPage:
         self.driver.find_element(*self.LOGIN_INPUT).clear()
         self.driver.find_element(*self.LOGIN_INPUT).send_keys("webinar5")
         self.driver.find_element(*self.PASSWORD_INPUT).clear()
-        self.driver.find_element(*self.PASSWORD_INPUT).send_keys("webinar6")
+        self.driver.find_element(*self.PASSWORD_INPUT).send_keys("webinar5")
         self.driver.find_element(*self.LOGIN_BUTTON).submit()
 
     @allure.step

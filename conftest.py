@@ -13,20 +13,6 @@ def get_driver(request):
     driver.close()
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @pytest.hookimpl(hookwrapper=True, tryfirst=True)
 def pytest_runtest_makereport(item):
     outcome = yield

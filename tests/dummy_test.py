@@ -1,2 +1,2 @@
-def test_example():
+def test_hello_world():
     assert 1 == 1

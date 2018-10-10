@@ -4,3 +4,4 @@ pytest-html==1.19.0
 webdriver-manager==1.7
 allure-pytest>=2.5.1
 pytest-rerunfailures>=4.1
+pytest-testconfig=>0.1.0

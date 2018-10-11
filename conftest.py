@@ -1,8 +1,9 @@
 import allure
-import pytest
 from selenium import webdriver
 from selenium.webdriver.android.webdriver import WebDriver
 from webdriver_manager.chrome import ChromeDriverManager
+import pytest
+from tests.api.utils.base_api_test import BaseAPITest
 
 
 @pytest.fixture(scope="function")
@@ -26,3 +27,8 @@ def pytest_runtest_makereport(item):
                               attachment_type=allure.attachment_type.PNG)
             except Exception as e:
                 print(e)
+
+
+@pytest.fixture(scope="session", autouse=True)
+def authenticate():
+    BaseAPITest.authenticate()

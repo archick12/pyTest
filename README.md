@@ -1,3 +1,10 @@
+# Known issues
+Если возникло "ImportError: cannot import name 'MarkInfo'"
+	То удалить pytest-selenium
+
+Если "TypeError: __init__() missing 3 required positional arguments: 'excinfo', 'start', and 'stop'"
+	То обновить flaky в pip до последней версии
+
 # To run tests
 * clone the project 
 ```git clone```
